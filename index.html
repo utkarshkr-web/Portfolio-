@@ -9,117 +9,122 @@
 
 <style>
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#0f172a;
-  color:#e2e8f0;
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#0f172a;
+color:#e5e7eb;
+scroll-behavior:smooth;
 }
 
 /* Navbar */
-nav {
-  position:sticky;
-  top:0;
-  background:rgba(15,23,42,0.9);
-  backdrop-filter: blur(8px);
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #1e293b;
-}
-
-nav a {
-  margin-left:20px;
-  color:#cbd5e1;
-  text-decoration:none;
-  font-weight:500;
-}
-
-nav a:hover {
-  color:#38bdf8;
+nav{
+position:sticky;
+top:0;
+background:#0f172a;
+padding:15px 40px;
+border-bottom:1px solid #1e293b;
+z-index:1000;
 }
 
 /* Hero */
-.hero {
-  text-align:center;
-  padding:120px 20px 80px;
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 10%;
+gap:40px;
 }
 
-.hero h1 {
-  font-size:46px;
-  margin-bottom:10px;
+.hero-text{
+max-width:600px;
 }
 
-.hero p {
-  max-width:600px;
-  margin:auto;
-  color:#94a3b8;
-  line-height:1.6;
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.hero img{
+width:260px;
+border-radius:18px;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
 
 /* Sections */
-.container {
-  max-width:1000px;
-  margin:auto;
-  padding:40px 20px;
+.section{
+padding:80px 10%;
 }
 
-h2 {
-  border-bottom:1px solid #1e293b;
-  padding-bottom:10px;
+.section:nth-child(even){
+background:#020617;
 }
 
-/* Project Cards */
-.project {
-  background:#111827;
-  margin-top:25px;
-  padding:25px;
-  border-radius:14px;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
+h2{
+margin-bottom:20px;
 }
 
-.project:hover {
-  transform:translateY(-6px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+/* Project Card */
+.project-card{
+background:#111827;
+padding:30px;
+border-radius:14px;
+margin-top:20px;
 }
+
+/* Carousel */
+.carousel{
+position:relative;
+overflow:hidden;
+margin-top:20px;
+border-radius:12px;
+}
+
+.carousel-track{
+display:flex;
+transition:transform 0.5s ease;
+}
+
+.carousel img{
+width:100%;
+flex-shrink:0;
+}
+
+/* Buttons */
+.carousel-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.6);
+border:none;
+color:white;
+font-size:24px;
+padding:10px 14px;
+cursor:pointer;
+border-radius:8px;
+}
+
+.left{left:10px;}
+.right{right:10px;}
 
 /* Skills */
-.skills span {
-  display:inline-block;
-  background:#1e293b;
-  padding:8px 14px;
-  border-radius:8px;
-  margin:6px;
+.skills span{
+display:inline-block;
+background:#1e293b;
+padding:10px 16px;
+border-radius:10px;
+margin:6px;
 }
 
-/* Reveal Animation */
-.reveal {
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-
-.reveal.active {
-  opacity:1;
-  transform:translateY(0);
-}
-
-footer {
-  text-align:center;
-  padding:30px;
-  border-top:1px solid #1e293b;
-  margin-top:40px;
-  color:#64748b;
-}
-
-a {
-  color:#38bdf8;
-  text-decoration:none;
+footer{
+text-align:center;
+padding:40px;
+color:#64748b;
 }
 
 </style>
@@ -128,69 +133,79 @@ a {
 <body>
 
 <nav>
-  <strong>Utkarsh</strong>
-  <div>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
+<strong>Utkarsh Kumar</strong>
 </nav>
 
-<section class="hero reveal">
-  <h1>Utkarsh Kumar</h1>
-  <p>
-  ECE undergraduate passionate about frontend development and embedded systems.
-  I enjoy building practical projects—from responsive websites to robotics systems.
-  </p>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-text">
+<h1>Hi, I'm Utkarsh</h1>
+<p>
+ECE undergraduate passionate about frontend development and embedded systems.
+I enjoy building practical projects—from responsive websites to robotics systems.
+</p>
+</div>
+
+<img src="me.jpg" alt="Utkarsh Photo">
 </section>
 
-<div class="container">
-
-<section id="projects" class="reveal">
+<!-- PROJECTS -->
+<section class="section">
 <h2>Projects</h2>
 
-<div class="project">
+<div class="project-card">
 <h3>Flix Agency Website</h3>
+
 <p>
 Designed and developed a responsive agency website using HTML, CSS, and JavaScript.
-Implemented structured layouts, responsive sections, and custom UI design.
+Focused on layout structure, UI clarity, and responsiveness across devices.
 </p>
-<p>
-<a href="https://utkarshkr-web.github.io/flix.agency/" target="_blank">Live Demo</a>
-</p>
+
+<div class="carousel">
+<button class="carousel-btn left" onclick="moveSlide(-1)">❮</button>
+
+<div class="carousel-track" id="track">
+<img src="flix1.jpg">
+<img src="flix2.jpg">
+<img src="flix3.jpg">
 </div>
 
-<div class="project">
-<h3>Self-Balancing Robot</h3>
+<button class="carousel-btn right" onclick="moveSlide(1)">❯</button>
+</div>
+
+</div>
+
+<div class="project-card">
+<h3>Self Balancing Robot</h3>
 <p>
-Built a two-wheel balancing robot using MPU6050 IMU and Arduino.
-Implemented PID control and tuned parameters to achieve stable balance.
+Built a two-wheel balancing robot using MPU6050 and Arduino.
+Implemented PID control and tuned parameters for stable balancing.
 </p>
 </div>
 
 </section>
 
-<section id="skills" class="reveal">
+<!-- SKILLS -->
+<section class="section">
 <h2>Skills</h2>
 <div class="skills">
 <span>HTML</span>
 <span>CSS</span>
 <span>JavaScript</span>
-<span>C / C++</span>
+<span>C/C++</span>
 <span>Arduino</span>
 <span>Git & GitHub</span>
 <span>Video Editing</span>
 </div>
 </section>
 
-<section id="contact" class="reveal">
+<!-- CONTACT -->
+<section class="section">
 <h2>Contact</h2>
 <p>Email: 1807utkarshkr@gmail.com</p>
-<p><a href="https://github.com/utkarshkr-web">GitHub</a></p>
-<p><a href="https://www.linkedin.com/in/utkarsh-kumar-306a242a6">LinkedIn</a></p>
+<p>GitHub: github.com/utkarshkr-web</p>
+<p>LinkedIn: linkedin.com/in/utkarsh-kumar-306a242a6</p>
 </section>
-
-</div>
 
 <footer>
 © 2026 Utkarsh Kumar
@@ -198,22 +213,14 @@ Implemented PID control and tuned parameters to achieve stable balance.
 
 <script>
 
-/* Scroll animation */
-function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 100;
+let index=0;
 
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
-    }
-  }
+function moveSlide(direction){
+const track=document.getElementById("track");
+const slides=track.children.length;
+index=(index+direction+slides)%slides;
+track.style.transform="translateX(-"+index*100+"%)";
 }
-
-window.addEventListener("scroll", reveal);
-reveal();
 
 </script>
 
