@@ -95,14 +95,16 @@ margin:4px 6px 0 0;
 font-weight:500;
 }
 
-/* Carousel */
+/* Carousel (compact) */
 .carousel{
 position:relative;
 overflow:hidden;
-margin-top:15px;
+margin:15px auto 0 auto;
 border-radius:12px;
 background:#000;
 padding:10px;
+width:320px;
+max-width:100%;
 display:flex;
 justify-content:center;
 }
@@ -214,6 +216,10 @@ padding:50px 6%;
 font-size:34px;
 }
 
+.carousel{
+width:260px;
+}
+
 .carousel img{
 height:130px;
 }
@@ -285,19 +291,27 @@ Designed and developed a responsive agency website focusing on clean UI, structu
 
 <div class="project-card">
 
-<h3>Personal Portfolio Website</h3>
+<h3>Self Balancing Robot</h3>
 
 <p>
-Designed and built a responsive personal portfolio to showcase projects and skills.
-Implemented image carousel, responsive layout, and clean UI structure.
+Built a two-wheel self-balancing robot using an MPU6050 IMU and Arduino.
+Implemented a PID control algorithm to maintain balance by continuously
+reading accelerometer and gyroscope data and adjusting motor speed in real time.
 </p>
 
-<p><strong>Role:</strong> Design, Frontend Development</p>
+<p>
+Tuned PID parameters through multiple test iterations to achieve stable balancing
+and reduce oscillations. This project helped me gain practical experience in
+sensor fusion, feedback control systems, and real-time embedded programming.
+</p>
+
+<p><strong>Role:</strong> Hardware Design, Control Logic, Testing</p>
 
 <div class="tools">
-<span class="tool-tag">HTML</span>
-<span class="tool-tag">CSS</span>
-<span class="tool-tag">JavaScript</span>
+<span class="tool-tag">Arduino</span>
+<span class="tool-tag">MPU6050</span>
+<span class="tool-tag">C++</span>
+<span class="tool-tag">PID Control</span>
 </div>
 
 </div>
