@@ -21,24 +21,32 @@ background:#0f172a;
 color:#e5e7eb;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 8%;
+padding:14px 20px;
 background:rgba(15,23,42,0.6);
 backdrop-filter:blur(12px);
 -webkit-backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,0.08);
 z-index:1000;
+box-sizing:border-box;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+padding-right:10px;
+flex-wrap:wrap;
 }
 
 .nav-links a{
-margin-left:20px;
 text-decoration:none;
 color:#e5e7eb;
 font-weight:500;
@@ -50,10 +58,10 @@ transition:0.2s;
 color:#38bdf8;
 }
 
-/* Sections */
+/* SECTIONS */
 .section-dark{
 background:#0f172a;
-padding:100px 8% 70px; /* extra top padding for navbar */
+padding:100px 8% 70px;
 }
 
 .section-light{
@@ -62,7 +70,7 @@ color:#111827;
 padding:100px 8% 70px;
 }
 
-/* Hero */
+/* HERO */
 .hero{
 display:flex;
 align-items:center;
@@ -91,7 +99,7 @@ border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Projects */
+/* PROJECTS */
 .project-card{
 background:#f3f4f6;
 padding:20px;
@@ -111,6 +119,7 @@ margin-bottom:8px;
 font-weight:600;
 }
 
+/* TOOL TAGS */
 .tools{
 margin-top:8px;
 }
@@ -126,7 +135,7 @@ margin:4px 6px 0 0;
 font-weight:500;
 }
 
-/* Gallery */
+/* GALLERY */
 .gallery{
 margin-top:15px;
 display:flex;
@@ -152,7 +161,7 @@ background:#888;
 border-radius:10px;
 }
 
-/* Buttons */
+/* BUTTONS */
 .project-buttons{
 margin-top:15px;
 display:flex;
@@ -176,7 +185,7 @@ transform:translateY(-2px);
 background:#1f2937;
 }
 
-/* Skills */
+/* SKILLS */
 .skills span{
 display:inline-block;
 background:#1e293b;
@@ -185,7 +194,7 @@ border-radius:10px;
 margin:6px;
 }
 
-/* Contact */
+/* CONTACT */
 .contact-container{
 display:flex;
 gap:20px;
@@ -209,8 +218,21 @@ transition:0.3s;
 transform:translateY(-3px);
 }
 
-/* Mobile */
+/* MOBILE */
 @media (max-width:768px){
+
+.navbar{
+padding:12px 16px;
+}
+
+.nav-links{
+gap:12px;
+padding-right:6px;
+}
+
+.nav-links a{
+font-size:13px;
+}
 
 .hero{
 flex-direction:column;
@@ -222,11 +244,6 @@ width:180px;
 
 .gallery img{
 height:140px;
-}
-
-.nav-links a{
-margin-left:12px;
-font-size:13px;
 }
 
 }
