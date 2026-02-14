@@ -6,7 +6,6 @@
 <title>Utkarsh Kumar | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <script src="https://kit.fontawesome.com/4c5f0c8b2f.js" crossorigin="anonymous"></script>
 
 <style>
@@ -61,15 +60,39 @@ box-shadow:0 10px 30px rgba(0,0,0,0.3);
 
 /* Projects */
 .project-card{
-background:#111827;
+background:#f3f4f6;
 padding:20px;
 border-radius:14px;
 margin-top:25px;
 max-width:800px;
 }
 
-.section-light .project-card{
-background:#f3f4f6;
+/* Featured label */
+.featured-label{
+display:inline-block;
+background:#111827;
+color:white;
+font-size:12px;
+padding:4px 10px;
+border-radius:6px;
+margin-bottom:8px;
+font-weight:600;
+}
+
+/* Tools tags */
+.tools{
+margin-top:8px;
+}
+
+.tool-tag{
+display:inline-block;
+background:#e5e7eb;
+color:#111827;
+padding:4px 10px;
+border-radius:6px;
+font-size:13px;
+margin:4px 6px 0 0;
+font-weight:500;
 }
 
 /* Carousel */
@@ -80,6 +103,8 @@ margin-top:15px;
 border-radius:12px;
 background:#000;
 padding:10px;
+display:flex;
+justify-content:center;
 }
 
 .carousel-track{
@@ -88,10 +113,10 @@ transition:transform 0.5s ease;
 }
 
 .carousel img{
-width:100%;
-height:auto;
-max-height:220px;
-object-fit:contain;
+height:160px;
+width:auto;
+margin:auto;
+border-radius:8px;
 }
 
 /* Carousel buttons */
@@ -111,6 +136,30 @@ border-radius:6px;
 .left{left:10px;}
 .right{right:10px;}
 
+/* Project buttons */
+.project-buttons{
+margin-top:15px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.project-btn{
+padding:8px 14px;
+border-radius:8px;
+text-decoration:none;
+font-weight:500;
+font-size:14px;
+background:#111827;
+color:white;
+transition:0.25s;
+}
+
+.project-btn:hover{
+transform:translateY(-2px);
+background:#1f2937;
+}
+
 /* Skills */
 .skills span{
 display:inline-block;
@@ -118,10 +167,6 @@ background:#1e293b;
 padding:10px 14px;
 border-radius:10px;
 margin:6px;
-}
-
-.section-light .skills span{
-background:#e5e7eb;
 }
 
 /* Contact */
@@ -136,17 +181,12 @@ margin-top:20px;
 display:flex;
 align-items:center;
 gap:10px;
-background:#111827;
+background:#e5e7eb;
 padding:12px 18px;
 border-radius:12px;
 text-decoration:none;
-color:white;
-transition:0.3s;
-}
-
-.section-light .contact-card{
-background:#e5e7eb;
 color:#111827;
+transition:0.3s;
 }
 
 .contact-card:hover{
@@ -175,7 +215,7 @@ font-size:34px;
 }
 
 .carousel img{
-max-height:160px;
+height:130px;
 }
 
 }
@@ -207,12 +247,22 @@ I enjoy building practical projects—from responsive websites to robotics syste
 
 <div class="project-card">
 
+<div class="featured-label">Featured Project</div>
+
 <h3>Flix Agency Website</h3>
 
 <p>
-Designed and developed a responsive agency website using HTML, CSS, and JavaScript.
-Focused on layout structure, UI clarity, and responsiveness across devices.
+Designed and developed a responsive agency website focusing on clean UI, structured layouts, and mobile responsiveness.
 </p>
+
+<p><strong>Role:</strong> Design, Frontend Development</p>
+
+<div class="tools">
+<span class="tool-tag">HTML</span>
+<span class="tool-tag">CSS</span>
+<span class="tool-tag">JavaScript</span>
+<span class="tool-tag">GitHub Pages</span>
+</div>
 
 <div class="carousel">
 <button class="carousel-btn left" onclick="moveSlide(-1)">❮</button>
@@ -226,22 +276,29 @@ Focused on layout structure, UI clarity, and responsiveness across devices.
 <button class="carousel-btn right" onclick="moveSlide(1)">❯</button>
 </div>
 
+<div class="project-buttons">
+<a class="project-btn" href="https://utkarshkr-web.github.io/flix.agency/" target="_blank">Live Demo</a>
+<a class="project-btn" href="https://github.com/utkarshkr-web/flix.agency" target="_blank">GitHub Repo</a>
+</div>
+
 </div>
 
 <div class="project-card">
-<h3>Self Balancing Robot</h3>
+
+<h3>Personal Portfolio Website</h3>
 
 <p>
-Built a two-wheel self-balancing robot using an MPU6050 IMU and Arduino. 
-Implemented a PID control algorithm to maintain balance by continuously reading 
-accelerometer and gyroscope data and adjusting motor speed in real time.
+Designed and built a responsive personal portfolio to showcase projects and skills.
+Implemented image carousel, responsive layout, and clean UI structure.
 </p>
 
-<p>
-Tuned PID parameters through multiple test iterations to achieve stable balancing 
-and reduce oscillations. The project helped me gain practical experience in 
-sensor fusion, feedback control systems, and real-time embedded programming.
-</p>
+<p><strong>Role:</strong> Design, Frontend Development</p>
+
+<div class="tools">
+<span class="tool-tag">HTML</span>
+<span class="tool-tag">CSS</span>
+<span class="tool-tag">JavaScript</span>
+</div>
 
 </div>
 
