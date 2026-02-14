@@ -10,6 +10,10 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:'Inter',sans-serif;
@@ -17,17 +21,48 @@ background:#0f172a;
 color:#e5e7eb;
 }
 
+/* Navbar */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 8%;
+background:rgba(15,23,42,0.6);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+z-index:1000;
+}
+
+.nav-links a{
+margin-left:20px;
+text-decoration:none;
+color:#e5e7eb;
+font-weight:500;
+font-size:14px;
+transition:0.2s;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
+}
+
+/* Sections */
 .section-dark{
 background:#0f172a;
-padding:70px 8%;
+padding:100px 8% 70px; /* extra top padding for navbar */
 }
 
 .section-light{
 background:#ffffff;
 color:#111827;
-padding:70px 8%;
+padding:100px 8% 70px;
 }
 
+/* Hero */
 .hero{
 display:flex;
 align-items:center;
@@ -56,6 +91,7 @@ border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
+/* Projects */
 .project-card{
 background:#f3f4f6;
 padding:20px;
@@ -90,7 +126,7 @@ margin:4px 6px 0 0;
 font-weight:500;
 }
 
-/* Scroll gallery (new fix) */
+/* Gallery */
 .gallery{
 margin-top:15px;
 display:flex;
@@ -173,6 +209,7 @@ transition:0.3s;
 transform:translateY(-3px);
 }
 
+/* Mobile */
 @media (max-width:768px){
 
 .hero{
@@ -187,6 +224,11 @@ width:180px;
 height:140px;
 }
 
+.nav-links a{
+margin-left:12px;
+font-size:13px;
+}
+
 }
 
 </style>
@@ -194,7 +236,19 @@ height:140px;
 
 <body>
 
-<section class="section-dark">
+<!-- NAVBAR -->
+<div class="navbar">
+<div><strong>Utkarsh</strong></div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section id="home" class="section-dark">
 <div class="hero">
 <div class="hero-text">
 <h1>Hi, I'm Utkarsh</h1>
@@ -208,7 +262,8 @@ I enjoy building practical projects—from responsive websites to robotics syste
 </div>
 </section>
 
-<section class="section-light">
+<!-- PROJECTS -->
+<section id="projects" class="section-light">
 
 <h2>Projects</h2>
 
@@ -273,7 +328,8 @@ sensor fusion, feedback control systems, and real-time embedded programming.
 
 </section>
 
-<section class="section-dark">
+<!-- SKILLS -->
+<section id="skills" class="section-dark">
 <h2>Skills</h2>
 
 <div class="skills">
@@ -288,7 +344,8 @@ sensor fusion, feedback control systems, and real-time embedded programming.
 
 </section>
 
-<section class="section-light">
+<!-- CONTACT -->
+<section id="contact" class="section-light">
 
 <h2>Contact</h2>
 
