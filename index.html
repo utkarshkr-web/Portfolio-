@@ -7,6 +7,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<script src="https://kit.fontawesome.com/4c5f0c8b2f.js" crossorigin="anonymous"></script>
+
 <style>
 
 body{
@@ -76,6 +78,8 @@ position:relative;
 overflow:hidden;
 margin-top:15px;
 border-radius:12px;
+background:#000;
+padding:10px;
 }
 
 .carousel-track{
@@ -85,9 +89,9 @@ transition:transform 0.5s ease;
 
 .carousel img{
 width:100%;
-height:170px;
-object-fit:cover;
-flex-shrink:0;
+height:auto;
+max-height:220px;
+object-fit:contain;
 }
 
 /* Carousel buttons */
@@ -120,6 +124,35 @@ margin:6px;
 background:#e5e7eb;
 }
 
+/* Contact */
+.contact-container{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.contact-card{
+display:flex;
+align-items:center;
+gap:10px;
+background:#111827;
+padding:12px 18px;
+border-radius:12px;
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.section-light .contact-card{
+background:#e5e7eb;
+color:#111827;
+}
+
+.contact-card:hover{
+transform:translateY(-3px);
+}
+
 /* Mobile */
 @media (max-width:768px){
 
@@ -142,7 +175,7 @@ font-size:34px;
 }
 
 .carousel img{
-height:140px;
+max-height:160px;
 }
 
 }
@@ -197,10 +230,19 @@ Focused on layout structure, UI clarity, and responsiveness across devices.
 
 <div class="project-card">
 <h3>Self Balancing Robot</h3>
+
 <p>
-Built a two-wheel balancing robot using MPU6050 and Arduino.
-Implemented PID control and tuned parameters for stable balancing.
+Built a two-wheel self-balancing robot using an MPU6050 IMU and Arduino. 
+Implemented a PID control algorithm to maintain balance by continuously reading 
+accelerometer and gyroscope data and adjusting motor speed in real time.
 </p>
+
+<p>
+Tuned PID parameters through multiple test iterations to achieve stable balancing 
+and reduce oscillations. The project helped me gain practical experience in 
+sensor fusion, feedback control systems, and real-time embedded programming.
+</p>
+
 </div>
 
 </section>
@@ -225,23 +267,36 @@ Implemented PID control and tuned parameters for stable balancing.
 <section class="section-light">
 
 <h2>Contact</h2>
-<p>Email: 1807utkarshkr@gmail.com</p>
-<p>GitHub: github.com/utkarshkr-web</p>
-<p>LinkedIn: linkedin.com/in/utkarsh-kumar-306a242a6</p>
+
+<div class="contact-container">
+
+<a class="contact-card" href="mailto:1807utkarshkr@gmail.com">
+<i class="fas fa-envelope"></i>
+<span>Email</span>
+</a>
+
+<a class="contact-card" href="https://github.com/utkarshkr-web" target="_blank">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</a>
+
+<a class="contact-card" href="https://www.linkedin.com/in/utkarsh-kumar-306a242a6" target="_blank">
+<i class="fab fa-linkedin"></i>
+<span>LinkedIn</span>
+</a>
+
+</div>
 
 </section>
 
 <script>
-
 let index=0;
-
 function moveSlide(direction){
 const track=document.getElementById("track");
 const slides=track.children.length;
 index=(index+direction+slides)%slides;
 track.style.transform="translateX(-"+index*100+"%)";
 }
-
 </script>
 
 </body>
