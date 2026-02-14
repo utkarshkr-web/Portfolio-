@@ -17,7 +17,6 @@ background:#0f172a;
 color:#e5e7eb;
 }
 
-/* Sections */
 .section-dark{
 background:#0f172a;
 padding:70px 8%;
@@ -29,7 +28,6 @@ color:#111827;
 padding:70px 8%;
 }
 
-/* Hero */
 .hero{
 display:flex;
 align-items:center;
@@ -58,7 +56,6 @@ border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Projects */
 .project-card{
 background:#f3f4f6;
 padding:20px;
@@ -67,7 +64,6 @@ margin-top:25px;
 max-width:800px;
 }
 
-/* Featured label */
 .featured-label{
 display:inline-block;
 background:#111827;
@@ -79,7 +75,6 @@ margin-bottom:8px;
 font-weight:600;
 }
 
-/* Tools tags */
 .tools{
 margin-top:8px;
 }
@@ -95,50 +90,33 @@ margin:4px 6px 0 0;
 font-weight:500;
 }
 
-/* Carousel */
-.carousel{
-position:relative;
-overflow:hidden;
+/* Scroll gallery (new fix) */
+.gallery{
 margin-top:15px;
-border-radius:12px;
-background:#000;
-padding:10px;
-width:100%;
-}
-
-.carousel-track{
 display:flex;
-transition:transform 0.5s ease;
+gap:12px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding-bottom:6px;
 }
 
-.carousel img{
-width:100%;
-height:auto;
-max-height:200px;
-object-fit:contain;
-border-radius:8px;
-background:#000;
-display:block;
+.gallery img{
+height:170px;
+border-radius:10px;
+scroll-snap-align:start;
+flex-shrink:0;
 }
 
-/* Carousel buttons */
-.carousel-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-border:none;
-color:white;
-font-size:18px;
-padding:6px 10px;
-cursor:pointer;
-border-radius:6px;
+.gallery::-webkit-scrollbar{
+height:6px;
 }
 
-.left{left:10px;}
-.right{right:10px;}
+.gallery::-webkit-scrollbar-thumb{
+background:#888;
+border-radius:10px;
+}
 
-/* Project buttons */
+/* Buttons */
 .project-buttons{
 margin-top:15px;
 display:flex;
@@ -195,29 +173,18 @@ transition:0.3s;
 transform:translateY(-3px);
 }
 
-/* Mobile */
 @media (max-width:768px){
 
 .hero{
 flex-direction:column;
-text-align:left;
 }
 
 .hero img{
 width:180px;
 }
 
-.section-dark,
-.section-light{
-padding:50px 6%;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.carousel img{
-max-height:160px;
+.gallery img{
+height:140px;
 }
 
 }
@@ -227,7 +194,6 @@ max-height:160px;
 
 <body>
 
-<!-- HERO -->
 <section class="section-dark">
 <div class="hero">
 <div class="hero-text">
@@ -242,7 +208,6 @@ I enjoy building practical projects—from responsive websites to robotics syste
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="section-light">
 
 <h2>Projects</h2>
@@ -266,16 +231,10 @@ Designed and developed a responsive agency website focusing on clean UI, structu
 <span class="tool-tag">GitHub Pages</span>
 </div>
 
-<div class="carousel">
-<button class="carousel-btn left" onclick="moveSlide(-1)">❮</button>
-
-<div class="carousel-track" id="track">
+<div class="gallery">
 <img src="flix1.jpg">
 <img src="flix2.jpg">
 <img src="flix3.jpg">
-</div>
-
-<button class="carousel-btn right" onclick="moveSlide(1)">❯</button>
 </div>
 
 <div class="project-buttons">
@@ -314,7 +273,6 @@ sensor fusion, feedback control systems, and real-time embedded programming.
 
 </section>
 
-<!-- SKILLS -->
 <section class="section-dark">
 <h2>Skills</h2>
 
@@ -330,7 +288,6 @@ sensor fusion, feedback control systems, and real-time embedded programming.
 
 </section>
 
-<!-- CONTACT -->
 <section class="section-light">
 
 <h2>Contact</h2>
@@ -355,19 +312,6 @@ sensor fusion, feedback control systems, and real-time embedded programming.
 </div>
 
 </section>
-
-<script>
-let index = 0;
-
-function moveSlide(direction){
-const track = document.getElementById("track");
-const slides = track.children.length;
-
-index = (index + direction + slides) % slides;
-
-track.style.transform = `translateX(-${index * 100}%)`;
-}
-</script>
 
 </body>
 </html>
